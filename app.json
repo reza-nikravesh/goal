@@ -1,15 +1,16 @@
 {
   "expo": {
-    "name": "textPro",
-    "slug": "textPro",
+    "name": "goal",
+    "slug": "goal",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "backgroundColor": "#1e085a",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/goal.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#1e085a"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -24,7 +25,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.rezankv.goal"
     },
     "web": {
       "favicon": "./assets/favicon.png"

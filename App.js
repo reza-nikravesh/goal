@@ -1,20 +1,41 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from "react";
+import { Button, StatusBar, StyleSheet, Text, View } from "react-native";
+import GoalInput from "./components/GoalInput";
+import GoalList from "./components/GoalList";
 
 export default function App() {
+  const [goalList, setGoalList] = useState([]);
+  const [modalIsVisible, setModalIsVisible] = useState(false);
+
+  const startAddGoal = () => {
+    setModalIsVisible(true);
+  };
+  const finishAddGoal = () => {
+    setModalIsVisible(false);
+  };
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <StatusBar barStyle={"light-content"} />
+      <View style={styles.container}>
+        <Button title="Add New Goal" onPress={startAddGoal} color="#a065ec" />
+        <GoalInput setGoalList={setGoalList} visible={modalIsVisible} onCancel={finishAddGoal} />
+        <Text style={styles.listTitle}>Your Goals : </Text>
+        <GoalList setGoalList={setGoalList} goalList={goalList} />
+      </View>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding: 20,
+  },
+  listTitle: {
+    fontSize: 18,
+    marginTop: 20,
+    color: "white",
+    fontWeight: "bold",
   },
 });
